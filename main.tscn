@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://vrybmxtm2474"]
+
+[ext_resource type="Material" uid="uid://oob6p5w3hsl5" path="res://addons/kenney_prototype_tools/materials/red/material_09.tres" id="1_ydp8d"]
+[ext_resource type="PackedScene" uid="uid://bgo8od8j4p1iv" path="res://Characters/Magician/v2/MagicianPuppet.tscn" id="2_hqxua"]
+
+[sub_resource type="Environment" id="Environment_x86t4"]
+background_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_n8sy0"]
+size = Vector3(12, 0.5, 12)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x86t4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_ydp8d")
+mesh = SubResource("BoxMesh_n8sy0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 6.5)
+
+[node name="MagicianPuppet" parent="." instance=ExtResource("2_hqxua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 2)
