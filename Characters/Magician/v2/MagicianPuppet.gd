@@ -17,7 +17,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _physics_process(delta: float) -> void:
 	camera_movement_input_handler(delta)
@@ -40,7 +44,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventKey or event is InputEventMouseButton:
 		input_mode = InputMode.KEYBOARD_AND_MOUSE
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if event is InputEventMouseMotion:
 		var input_direction : Vector2 = event.relative.normalized()

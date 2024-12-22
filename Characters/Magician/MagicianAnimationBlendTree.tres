@@ -128,7 +128,7 @@ input_2/break_loop_at_end = false
 input_2/reset = true
 
 [resource]
-graph_offset = Vector2(-1125, -516)
+graph_offset = Vector2(-797.642, -270.755)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_wa1os")
 nodes/Animation/position = Vector2(-560, -320)
 nodes/JumpStateMachine/node = SubResource("AnimationNodeStateMachine_go2dt")
