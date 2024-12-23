@@ -1,0 +1,19 @@
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://dbvo4qq4fhgos"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_wq1a4"]
+
+[sub_resource type="BTSequence" id="BTSequence_6p8ej"]
+custom_name = "Locomotion"
+
+[sub_resource type="BTSequence" id="BTSequence_e80ql"]
+custom_name = "Jump"
+
+[sub_resource type="BTSequence" id="BTSequence_ygftx"]
+custom_name = "Laying"
+
+[sub_resource type="BTSelector" id="BTSelector_l6ex0"]
+children = [SubResource("BTSequence_6p8ej"), SubResource("BTSequence_e80ql"), SubResource("BTSequence_ygftx")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_wq1a4")
+root_task = SubResource("BTSelector_l6ex0")

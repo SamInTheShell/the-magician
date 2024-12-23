@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://vrybmxtm2474"]
+[gd_scene load_steps=7 format=3 uid="uid://vrybmxtm2474"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_umnkw"]
 [ext_resource type="Material" uid="uid://oob6p5w3hsl5" path="res://addons/kenney_prototype_tools/materials/red/material_09.tres" id="1_ydp8d"]
-[ext_resource type="PackedScene" uid="uid://bgo8od8j4p1iv" path="res://Characters/Magician/v2/MagicianPuppet.tscn" id="2_hqxua"]
+[ext_resource type="PackedScene" uid="uid://inrdjug5mvek" path="res://Characters/Magician/v2/MagicianCharacterBody3D.tscn" id="2_2jk47"]
 
 [sub_resource type="Environment" id="Environment_x86t4"]
 background_mode = 2
@@ -9,7 +10,11 @@ background_mode = 2
 [sub_resource type="BoxMesh" id="BoxMesh_n8sy0"]
 size = Vector3(12, 0.5, 12)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t4t0e"]
+data = PackedVector3Array(-6, 0.25, 6, 6, 0.25, 6, -6, -0.25, 6, 6, 0.25, 6, 6, -0.25, 6, -6, -0.25, 6, 6, 0.25, -6, -6, 0.25, -6, 6, -0.25, -6, -6, 0.25, -6, -6, -0.25, -6, 6, -0.25, -6, 6, 0.25, 6, 6, 0.25, -6, 6, -0.25, 6, 6, 0.25, -6, 6, -0.25, -6, 6, -0.25, 6, -6, 0.25, -6, -6, 0.25, 6, -6, -0.25, -6, -6, 0.25, 6, -6, -0.25, 6, -6, -0.25, -6, 6, 0.25, 6, -6, 0.25, 6, 6, 0.25, -6, -6, 0.25, 6, -6, 0.25, -6, 6, 0.25, -6, -6, -0.25, 6, 6, -0.25, 6, -6, -0.25, -6, 6, -0.25, 6, 6, -0.25, -6, -6, -0.25, -6)
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_umnkw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x86t4")
@@ -21,8 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 0)
 material_override = ExtResource("1_ydp8d")
 mesh = SubResource("BoxMesh_n8sy0")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 6.5)
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
-[node name="MagicianPuppet" parent="." instance=ExtResource("2_hqxua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 2)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_t4t0e")
+
+[node name="MagicianCharacterBody3D" parent="." instance=ExtResource("2_2jk47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.25, 1.25)

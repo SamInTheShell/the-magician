@@ -33,7 +33,7 @@ states/Jump_Land/position = Vector2(760, 100)
 states/Jump_Start/node = SubResource("AnimationNodeAnimation_h51y2")
 states/Jump_Start/position = Vector2(371, 100)
 transitions = ["Start", "Jump_Start", SubResource("AnimationNodeStateMachineTransition_occgg"), "Jump_Start", "Jump_Idle", SubResource("AnimationNodeStateMachineTransition_jqf3o"), "Jump_Idle", "Jump_Land", SubResource("AnimationNodeStateMachineTransition_r57fp"), "Jump_Land", "End", SubResource("AnimationNodeStateMachineTransition_synre")]
-graph_offset = Vector2(-211, -115)
+graph_offset = Vector2(95, -125)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uhhtk"]
 animation = &"Lie_Down"
@@ -66,6 +66,7 @@ states/Lie_Idle/position = Vector2(541, 115)
 states/Lie_StandUp/node = SubResource("AnimationNodeAnimation_lctf8")
 states/Lie_StandUp/position = Vector2(714, 115)
 transitions = ["Start", "Lie_Down", SubResource("AnimationNodeStateMachineTransition_jxdk0"), "Lie_Down", "Lie_Idle", SubResource("AnimationNodeStateMachineTransition_lbcdv"), "Lie_Idle", "Lie_StandUp", SubResource("AnimationNodeStateMachineTransition_d0mkj"), "Lie_StandUp", "End", SubResource("AnimationNodeStateMachineTransition_se1q0")]
+graph_offset = Vector2(65, -25)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rtpbk"]
 animation = &"Idle"
@@ -106,7 +107,7 @@ states/Running/position = Vector2(710, 267)
 states/Walking/node = SubResource("AnimationNodeAnimation_gne6o")
 states/Walking/position = Vector2(710, 0)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_euonl"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_ae1gi"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_c1mfl"), "Walking", "Running", SubResource("AnimationNodeStateMachineTransition_vll0q"), "Running", "Walking", SubResource("AnimationNodeStateMachineTransition_10upw"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_wtf5d"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_3t3ta")]
-graph_offset = Vector2(-47, -80)
+graph_offset = Vector2(-299, -127)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_shdnl"]
 fadein_time = 0.2
@@ -128,18 +129,18 @@ input_2/break_loop_at_end = false
 input_2/reset = true
 
 [resource]
-graph_offset = Vector2(-797.642, -270.755)
+graph_offset = Vector2(-977.578, -428.898)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_wa1os")
-nodes/Animation/position = Vector2(-560, -320)
+nodes/Animation/position = Vector2(-520, -460)
 nodes/JumpStateMachine/node = SubResource("AnimationNodeStateMachine_go2dt")
-nodes/JumpStateMachine/position = Vector2(-540, -180)
+nodes/JumpStateMachine/position = Vector2(-520, -300)
 nodes/LayDownStateMachine/node = SubResource("AnimationNodeStateMachine_xw5qd")
-nodes/LayDownStateMachine/position = Vector2(-580, 0)
+nodes/LayDownStateMachine/position = Vector2(-520, -120)
 nodes/LocomotionStateMachine/node = SubResource("AnimationNodeStateMachine_07iy7")
-nodes/LocomotionStateMachine/position = Vector2(-580, -540)
+nodes/LocomotionStateMachine/position = Vector2(-600, -640)
 nodes/OneShot/node = SubResource("AnimationNodeOneShot_shdnl")
-nodes/OneShot/position = Vector2(140, -440)
+nodes/OneShot/position = Vector2(260, -580)
 nodes/Transition/node = SubResource("AnimationNodeTransition_6n1xc")
-nodes/Transition/position = Vector2(-160, -280)
-nodes/output/position = Vector2(400, -420)
+nodes/Transition/position = Vector2(-100, -440)
+nodes/output/position = Vector2(480, -540)
 node_connections = [&"OneShot", 0, &"LocomotionStateMachine", &"OneShot", 1, &"Transition", &"Transition", 0, &"Animation", &"Transition", 1, &"JumpStateMachine", &"Transition", 2, &"LayDownStateMachine", &"output", 0, &"OneShot"]

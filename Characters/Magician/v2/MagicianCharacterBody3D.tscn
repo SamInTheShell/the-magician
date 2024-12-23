@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://inrdjug5mvek"]
+
+[ext_resource type="Script" path="res://Characters/Magician/v2/MagicianController.gd" id="1_ds04d"]
+[ext_resource type="PackedScene" uid="uid://bgo8od8j4p1iv" path="res://Characters/Magician/v2/MagicianPuppet.tscn" id="2_eaouh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6t6jx"]
+height = 2.2
+
+[node name="MagicianCharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_ds04d")
+
+[node name="MagicianPuppet" parent="." instance=ExtResource("2_eaouh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("CylinderShape3D_6t6jx")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.25, 0)
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
